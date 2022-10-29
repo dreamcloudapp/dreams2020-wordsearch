@@ -1,6 +1,6 @@
 import { ContentCategory, RadarPersonData } from "@kannydennedy/dreams-2020-types";
 import { useMemo, useState } from "react";
-import Legend from "../bubble-graph/legend";
+import Legend from "../legend";
 import { CollectionCheck } from "../ducks/ui";
 import useMediaQuery from "../hooks/useDimensions";
 import {

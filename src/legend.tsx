@@ -1,4 +1,4 @@
-import { CollectionCheck } from "../ducks/ui";
+import { CollectionCheck } from "./ducks/ui";
 
 export type LegendOption = {
   label: string;

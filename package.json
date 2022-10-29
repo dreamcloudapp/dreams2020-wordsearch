@@ -42,14 +42,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "bubbledata": "npx ts-node scripts/generateBubbleData.ts",
-    "baselinedata": "node scripts/generateBaselineData.js",
-    "bardata": "npx ts-node scripts/generateBarData.ts",
-    "areadata": "npx ts-node scripts/generateAreaData.ts",
-    "monthcolumns": "npx ts-node scripts/generateMonthColumnData.ts",
-    "parse-dreams": "npx ts-node scripts/parseDreams.ts",
-    "parse-news": "npx ts-node scripts/parseNews.ts",
-    "data": "npx ts-node scripts/generateBubbleData.ts && npx ts-node scripts/generateAreaData.ts && npx ts-node scripts/generateMonthColumnData.ts && npx ts-node scripts/generateBarData.ts"
+    "data": "node scripts/generateBaselineData.js"
   },
   "eslintConfig": {
     "extends": [
