@@ -15,11 +15,11 @@ export type ChartOpts = {
 
 declare global {
   interface Window {
-    embedDreamChart: Function;
+    embedWordsearchCharts: Function;
   }
 }
 
-window.embedDreamChart = function (
+window.embedWordsearchCharts = function (
   htmlTagId: keyof HTMLElementTagNameMap,
   opts: ChartOpts = {}
 ) {
