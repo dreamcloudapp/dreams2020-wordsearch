@@ -1,0 +1,72 @@
+{
+  "name": "dreams-2020-fe",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@kannydennedy/dreams-2020-types": "^9.3.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@rehooks/component-size": "^1.0.3",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/d3": "^7.1.0",
+    "@types/jest": "^27.0.1",
+    "@types/luxon": "^2.0.9",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-svg-radar-chart": "^1.2.3",
+    "@visx/event": "^2.6.0",
+    "@visx/tooltip": "^2.8.0",
+    "craco": "^0.0.3",
+    "csv-parser": "^3.0.0",
+    "d3": "^7.3.0",
+    "jest": "^28.1.3",
+    "luxon": "^2.3.0",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^4.3.1",
+    "react-dom": "^17.0.2",
+    "react-redux": "^8.0.1",
+    "react-scripts": "5.0.0",
+    "react-spring": "^9.4.4",
+    "recharts": "^2.1.15",
+    "redux-thunk": "^2.4.1",
+    "ts-jest": "^28.0.8",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "PORT=3006 craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "bubbledata": "npx ts-node scripts/generateBubbleData.ts",
+    "baselinedata": "node scripts/generateBaselineData.js",
+    "bardata": "npx ts-node scripts/generateBarData.ts",
+    "areadata": "npx ts-node scripts/generateAreaData.ts",
+    "monthcolumns": "npx ts-node scripts/generateMonthColumnData.ts",
+    "parse-dreams": "npx ts-node scripts/parseDreams.ts",
+    "parse-news": "npx ts-node scripts/parseNews.ts",
+    "data": "npx ts-node scripts/generateBubbleData.ts && npx ts-node scripts/generateAreaData.ts && npx ts-node scripts/generateMonthColumnData.ts && npx ts-node scripts/generateBarData.ts"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
