@@ -18,7 +18,7 @@
             margin-bottom: 1rem;
         }
 
-        #embed {
+        #radars {
                     width: 800px;
                     height: 600px;
                     max-width: 100%;
@@ -53,7 +53,7 @@
             </code>
             Make sure to give the embed div sensible height and width styles, based on your page. E.g.:
             <pre>
-                #embed {
+                #radars {
                     width: 800px;
                     height: 600px;
                     max-width: 100%;
@@ -72,7 +72,7 @@
             <p>Run our embed script in a <code>&lt;script&gt;</code> tag, e.g.</p>
             <p>
                 <code>
-                &lt;script&gt; window.embedWordsearchCharts(&quot;#embed&quot;); &lt;/script&gt;
+                &lt;script&gt; window.embedWordsearchCharts(&quot;#radars&quot;); &lt;/script&gt;
             </code>
             </p>
             <p>The above function, <code>window.embedWordsearchCharts</code>, accepts 2 parameters:
@@ -80,7 +80,7 @@
                     <li>
 
                         A selector string (e.g.
-                        <code>"#embed"</code>). This refers to the empty div you made.
+                        <code>"#radars"</code>). This refers to the empty div you made.
                     </li>
                     <li>
                         Optionally, an options parameter to elect which dream sets to show on load
@@ -96,7 +96,7 @@
 <div id="embed"></div>
 
     <script>
-        window.embedWordsearchCharts("#embed", {activeDreamers: ["Baselines M", "Rose Journal"]});
+        window.embedWordsearchCharts("#radars", {activeDreamers: ["Baselines M", "Rose Journal"]});
     </script>
 </body>
 
