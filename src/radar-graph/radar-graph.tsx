@@ -2,7 +2,6 @@ import { ContentCategory, RadarPersonData } from "@kannydennedy/dreams-2020-type
 import { useMemo, useState } from "react";
 import Legend from "../legend";
 import { CollectionCheck } from "../ducks/ui";
-import useMediaQuery from "../hooks/useDimensions";
 import {
   RadarChart as RadarVis,
   PolarGrid,
@@ -33,9 +32,7 @@ type RadarGraphProps = {
 };
 
 export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphProps) {
-  const { isMobile, isTablet, isSmallDesktop } = useMediaQuery();
-
-  const numGraphsPerRow = isMobile ? 1 : isTablet ? 2 : isSmallDesktop ? 3 : 4;
+  const numGraphsPerRow = width < 600 ? 1 : width < 1000 ? 2 : width < 1200 ? 3 : 4;
 
   // Dummy
   const radarWidth = width / numGraphsPerRow - CHART_MARGIN * 2;
