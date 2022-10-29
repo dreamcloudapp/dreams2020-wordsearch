@@ -8,6 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import { GraphType } from "./ducks/ui";
 
 export type ChartOpts = {
+  activeDreamers?: string[];
   activeChart?: GraphType;
   showAll?: boolean;
 };
@@ -22,14 +23,18 @@ window.embedDreamChart = function (
   htmlTagId: keyof HTMLElementTagNameMap,
   opts: ChartOpts = {}
 ) {
-  const { activeChart, showAll } = opts;
+  const { activeChart, showAll, activeDreamers } = opts;
 
   const el = document.querySelector(htmlTagId);
   const render = () => {
     ReactDOM.render(
       <React.StrictMode>
         <Provider store={store}>
-          <App activeChart={activeChart} showAll={showAll} />
+          <App
+            activeChart={activeChart}
+            showAll={showAll}
+            activeDreamers={activeDreamers}
+          />
         </Provider>
       </React.StrictMode>,
       el

@@ -6,39 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
 
-    <!-- <script src="https://dreams-2020.netlify.app//static/js/main.js"></script> -->
+    <!-- <script src="https://dreams-2020-wordsearch.netlify.app/static/js/main.js"></script> -->
     <script src="https://dreams-2020.netlify.app/static/js/main.js"></script>
         <link rel="stylesheet" href="https://dreams-2020.netlify.app/static/css/main.css" />
 
 
-    <title>Dream Chart - Embed Test</title>
+    <title>Dreams 2020 Radars - Embed Test</title>
 
     <style>
         ol li {
             margin-bottom: 1rem;
-        }
-
-        #smu-embed-instructions .instructions {
-            color: black;
-            padding: 0px 20px;
-        }
-
-        #smu-embed-instructions .instructions h1 {
-            color: black;
-            font-size: 32px;
-            padding-bottom: 10px;
-        }
-
-        #smu-embed-instructions .instructions h2 {
-            color: black;
-            font-size: 24px;
-            text-align: left;
-            padding-bottom: 10px;
-
-        }
-
-        #smu-embed-instructions .instructions p {
-            color: black;
         }
 
         #embed {
@@ -54,7 +31,7 @@
 <body>
     <article id="dreams2020-embed-instructions">
     <div class="instructions">
-        <h1>This is the Dreams 2020 embed testing page.</h1>
+        <h1>This is the Dreams 2020 Radars embed testing page.</h1>
         <p>We're going to embed the chart below.</p>
 
     <h2>The embed code is as follows:</h2>
@@ -66,12 +43,12 @@
             <p>
                 <code>
                     &lt;script
-                    src=&quot;https://dreams-2020.netlify.app//static/js/main.js&quot;&gt;&lt;/script&gt;
+                    src=&quot;https://dreams-2020-wordsearch.netlify.app/static/js/main.js&quot;&gt;&lt;/script&gt;
             </code>
                 <br>
                 <code>
                     &lt;link rel=&quot;stylesheet&quot;
-                    href=&quot;https://dreams-2020.netlify.app//static/css/main.css&quot;
+                    href=&quot;https://dreams-2020-wordsearch.netlify.app/static/css/main.css&quot;
                     /&gt;
             </code>
             Make sure to give the embed div sensible height and width styles, based on your page. E.g.:
@@ -106,9 +83,8 @@
                         <code>"#embed"</code>). This refers to the empty div you made.
                     </li>
                     <li>
-                        Optionally, an options parameter to elect which graph to show, and whether
-                        to allow toggling to other graphs. e.g:
-                        <code>{activeChart: "area", showAll: true}</code> If you don't add this parameter, it will default to the bar chart and toggleable.
+                        Optionally, an options parameter to elect which dream sets to show on load
+                        <code>{activeDreamers: ["Baselines M", "Rose Journal"]}</code> If you don't add this parameter, it will default to "Baselines F" and "Baselines M".
                     </li>
                 </ul>
             </p>
@@ -120,7 +96,7 @@
 <div id="embed"></div>
 
     <script>
-        window.embedDreamChart("#embed", {activeChart: "bubble", showAll: false});
+        window.embedDreamChart("#embed", {activeDreamers: ["Baselines M", "Rose Journal"]});
     </script>
 </body>
 

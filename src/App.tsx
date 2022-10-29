@@ -18,7 +18,7 @@ const padding: Padding = {
   BOTTOM: 100,
 };
 
-function App({ activeChart = "radar", showAll = true }: ChartOpts) {
+function App({ activeChart = "radar", showAll = true, activeDreamers }: ChartOpts) {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const showingGraph = useSelector(selectShowingGraph);
