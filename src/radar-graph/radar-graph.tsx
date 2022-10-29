@@ -28,9 +28,10 @@ const CHART_MARGIN = 40;
 type RadarGraphProps = {
   data: RadarPersonData[];
   width: number;
+  defaultActiveDreamers: string[];
 };
 
-export function RadarGraph({ data, width }: RadarGraphProps) {
+export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphProps) {
   const { isMobile, isTablet, isSmallDesktop } = useMediaQuery();
 
   const numGraphsPerRow = isMobile ? 1 : isTablet ? 2 : isSmallDesktop ? 3 : 4;
@@ -38,12 +39,12 @@ export function RadarGraph({ data, width }: RadarGraphProps) {
   // Dummy
   const radarWidth = width / numGraphsPerRow - CHART_MARGIN * 2;
 
+  // Initial state is based on defaultActiveDreamers
   const [showingPeople, setShowingPeople] = useState<CollectionCheck[]>(
     data.map((person, i) => {
       return {
         label: person.name,
-        // We'll just show "Baselines F" and "Tita Journal" for starters
-        checked: person.name === "Baselines F" || person.name === "Mary Journal",
+        checked: defaultActiveDreamers.includes(person.name),
         color: person.meta.color,
       };
     })

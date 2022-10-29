@@ -12,6 +12,7 @@ type AppInnerProps = {
   hideTooltip: () => void;
   radarGraphData: RadarPersonData[];
   padding: Padding;
+  activeDreamers: string[];
 };
 
 function AppInner({
@@ -22,9 +23,18 @@ function AppInner({
   hideTooltip,
   radarGraphData,
   padding,
+  activeDreamers,
 }: AppInnerProps) {
   return (
-    <>{showingGraph === "radar" && <RadarGraph data={radarGraphData} width={width} />}</>
+    <>
+      {showingGraph === "radar" && (
+        <RadarGraph
+          defaultActiveDreamers={activeDreamers}
+          data={radarGraphData}
+          width={width}
+        />
+      )}
+    </>
   );
 }
 

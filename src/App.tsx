@@ -18,7 +18,11 @@ const padding: Padding = {
   BOTTOM: 100,
 };
 
-function App({ activeChart = "radar", showAll = true, activeDreamers }: ChartOpts) {
+function App({
+  activeChart = "radar",
+  showAll = true,
+  activeDreamers = ["Baselines F", "Baselines M"],
+}: ChartOpts) {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const showingGraph = useSelector(selectShowingGraph);
@@ -95,6 +99,7 @@ function App({ activeChart = "radar", showAll = true, activeDreamers }: ChartOpt
                   hideTooltip={hideTooltip}
                   radarGraphData={radarData}
                   padding={padding}
+                  activeDreamers={activeDreamers}
                 />
               )}
             </div>
