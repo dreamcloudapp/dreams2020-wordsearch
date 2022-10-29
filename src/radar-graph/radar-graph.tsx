@@ -11,6 +11,7 @@ import {
   Radar,
   Tooltip,
 } from "recharts";
+import { toTitleCase } from "../modules/formatters";
 
 const allRadarChartNames: ContentCategory[] = [
   "perception",
@@ -23,7 +24,7 @@ const allRadarChartNames: ContentCategory[] = [
   "elements",
 ];
 
-const CHART_MARGIN = 40;
+const CHART_MARGIN = 10;
 
 type RadarGraphProps = {
   data: RadarPersonData[];
@@ -137,6 +138,9 @@ export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphPro
 
   return (
     <div style={{ paddingTop: 50 }}>
+      <div style={{ marginBottom: "3rem" }}>
+        <Legend checkedCollections={showingPeople} handleCheck={handleCheck} />
+      </div>
       {rechartsRadarData.map((radar, i) => {
         const { radarData } = radar;
 
@@ -167,7 +171,7 @@ export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphPro
               fontSize: "0.8rem",
             }}
           >
-            <h3 style={{ fontWeight: "normal" }}>{radar.title}</h3>
+            <h3 style={{ fontWeight: "bold", margin: 0 }}>{toTitleCase(radar.title)}</h3>
             <RadarVis
               outerRadius={90}
               width={radarWidth}
@@ -203,7 +207,6 @@ export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphPro
           </div>
         );
       })}
-      <Legend checkedCollections={showingPeople} handleCheck={handleCheck} />
     </div>
   );
 }

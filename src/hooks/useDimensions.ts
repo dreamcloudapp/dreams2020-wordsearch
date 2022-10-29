@@ -10,7 +10,7 @@ export type MediaBooleanDict = {
 
 const QUERIES: MediaQuery[] = [
   { key: "isSmallDesktop", query: "screen and (max-width: 1350px)" },
-  { key: "isTablet", query: "screen and (max-width: 1150px)" },
+  { key: "isTablet", query: "screen and (max-width: 1000px)" },
   { key: "isMobile", query: "screen and (max-width: 600px)" },
 ];
 
