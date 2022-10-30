@@ -174,9 +174,9 @@ export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphPro
               width={radarWidth}
               height={radarWidth}
               data={radar.radarData}
-              onMouseEnter={x => {
-                console.log(x);
-              }}
+              // onMouseEnter={x => {
+              //   console.log(x);
+              // }}
               style={{ margin: 0 }}
             >
               <PolarGrid gridType="circle" />

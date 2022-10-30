@@ -44,8 +44,6 @@ export const selectIsLoading = (state: RootState): boolean => {
 
 const radarFile = "baselines.json";
 
-console.log(`"${process.env.PUBLIC_URL}"`);
-
 // Load radar data from the file
 export function fetchRadarData(): AppThunk {
   return async (dispatch: Dispatch) => {
