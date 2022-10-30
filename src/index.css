@@ -23,3 +23,13 @@ body {
 .dreams-2020-chart h5 {
   text-align: center;
 }
+
+.dreams-2020-chart .recharts-tooltip-wrapper {
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 13px !important;
+  text-align: left;
+}
+
+.recharts-default-tooltip ul > li {
+  margin: 0px;
+}
