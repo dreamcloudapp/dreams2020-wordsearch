@@ -2,7 +2,8 @@ const { getSpreadsheetData } = require("./modules/excel-helpers");
 const fs = require("fs");
 
 const SRC_PATH = "/../source-dreams-news";
-const BASELINES_PATH = `${SRC_PATH}/baselines.xlsx`;
+const FILENAME = "2020 Dreamers WS Analysis Final.xlsx";
+const BASELINES_PATH = `${SRC_PATH}/${FILENAME}`;
 const EXCEL_DATA_RANGE = {
   firstRow: 5,
   lastRow: 59,
@@ -25,35 +26,60 @@ const legends = [
     column: 4,
   },
   {
-    name: "Mary Journal",
-    column: 14,
-  },
-  {
-    name: "Tita Journal",
-    column: 18,
-  },
-  {
-    name: "Ana Journal 2020",
+    name: "Ana",
     column: 6,
   },
   {
-    name: "Burgess Journal",
+    name: "Burgess",
     column: 10,
   },
   {
-    name: "Rose Journal",
+    name: "Mary",
+    column: 14,
+  },
+  {
+    name: "Tita",
+    column: 18,
+  },
+  {
+    name: "Rose",
     column: 22,
+  },
+  {
+    name: "Edward",
+    column: 27,
+  },
+  {
+    name: "Bob",
+    column: 31,
+  },
+  {
+    name: "Vera",
+    column: 37,
+  },
+  {
+    name: "Freya",
+    column: 41,
+  },
+  {
+    name: "Melvin",
+    column: 45,
   },
 ];
 
 const palette = [
-  "#eb524d",
-  "#fac69a",
-  "#90caca",
-  "#b68a07",
-  "#3e683a",
-  "#40647a",
-  "#2c2c2c",
+  "hsl(2, 80%, 61%)",
+  "hsl(28, 91%, 69%)",
+  "hsl(180, 35%, 58%)",
+  "hsl(45, 93%, 37%)",
+  "hsl(115, 28%, 42%)",
+  "hsl(203, 31%, 46%)",
+  "hsl(0, 0%, 17%)",
+  "hsl(0, 84%, 40%)",
+  "hsl(330, 50%, 60%)",
+  "hsl(15, 30%, 60%)",
+  "hsl(280, 30%, 60%)",
+  "hsl(270, 5%, 50%)",
 ];
 
 const categories = {
