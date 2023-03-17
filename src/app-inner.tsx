@@ -1,7 +1,6 @@
 import "./App.css";
 import { RadarPersonData } from "@kannydennedy/dreams-2020-types";
 import { GraphType } from "./ducks/ui";
-import { Padding } from "./modules/ui-types";
 import { RadarGraph } from "./radar-graph/radar-graph";
 
 type AppInnerProps = {
