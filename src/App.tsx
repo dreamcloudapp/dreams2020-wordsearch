@@ -105,6 +105,7 @@ function App({
                   showingGraph={showingGraph}
                   radarGraphData={radarData}
                   activeDreamers={activeDreamers}
+                  fullScreen={isFullscreen}
                 />
               )}
             </div>

@@ -8,6 +8,7 @@ type AppInnerProps = {
   width: number;
   radarGraphData: RadarPersonData[];
   activeDreamers: string[];
+  fullScreen: boolean;
 };
 
 function AppInner({
@@ -15,6 +16,7 @@ function AppInner({
   width,
   radarGraphData,
   activeDreamers,
+  fullScreen,
 }: AppInnerProps) {
   return (
     <>
@@ -23,6 +25,7 @@ function AppInner({
           defaultActiveDreamers={activeDreamers}
           data={radarGraphData}
           width={width}
+          fullScreen={fullScreen}
         />
       )}
     </>

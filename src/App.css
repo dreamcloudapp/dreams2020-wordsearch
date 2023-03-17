@@ -47,3 +47,7 @@ button.selected {
 .invisible-column:hover line {
   stroke: #333;
 }
+
+text.recharts-text.recharts-polar-angle-axis-tick-value tspan {
+  fill: #777;
+}

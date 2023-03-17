@@ -29,9 +29,15 @@ type RadarGraphProps = {
   data: RadarPersonData[];
   width: number;
   defaultActiveDreamers: string[];
+  fullScreen?: boolean;
 };
 
-export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphProps) {
+export function RadarGraph({
+  data,
+  width,
+  defaultActiveDreamers,
+  fullScreen,
+}: RadarGraphProps) {
   const numGraphsPerRow = width < 600 ? 1 : width < 1000 ? 2 : width < 1200 ? 3 : 4;
 
   // Dummy
@@ -47,6 +53,8 @@ export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphPro
       };
     })
   );
+
+  const textColor = fullScreen ? "#eee" : "#222";
 
   // We need to return an array of arrays, e.g.
   // const x = [
@@ -168,15 +176,14 @@ export function RadarGraph({ data, width, defaultActiveDreamers }: RadarGraphPro
               fontSize: "0.8rem",
             }}
           >
-            <h3 style={{ fontWeight: "bold", margin: 0 }}>{toTitleCase(radar.title)}</h3>
+            <h3 style={{ fontWeight: "bold", margin: 0, color: textColor }}>
+              {toTitleCase(radar.title)}
+            </h3>
             <RadarVis
               outerRadius={90}
               width={radarWidth}
               height={radarWidth}
               data={radar.radarData}
-              // onMouseEnter={x => {
-              //   console.log(x);
-              // }}
               style={{ margin: 0 }}
             >
               <PolarGrid gridType="circle" />
