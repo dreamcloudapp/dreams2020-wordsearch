@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { useSelector } from "./ducks/root-reducer";
 import { useTooltip, useTooltipInPortal } from "@visx/tooltip";
@@ -6,17 +6,13 @@ import { selectIsLoading, selectRadarData, fetchRadarData } from "./ducks/data";
 import { useDispatch } from "react-redux";
 import { selectShowingGraph, setShowingGraph } from "./ducks/ui";
 import useComponentSize from "@rehooks/component-size";
-import { localPoint } from "@visx/event";
-import { Padding } from "./modules/ui-types";
 import { ChartOpts } from ".";
 import AppInner from "./app-inner";
+import { FullScreenButton } from "./components/fullscreen-btn";
+import { detect } from "detect-browser";
+import screenfull from "screenfull";
 
-const padding: Padding = {
-  LEFT: 50,
-  RIGHT: 30,
-  TOP: 60,
-  BOTTOM: 100,
-};
+const APP_ID = "dreams-2020-radar-charts";
 
 function App({
   activeChart = "radar",
@@ -30,11 +26,28 @@ function App({
 
   // Get width and height
   const graphContainerRef = useRef<HTMLDivElement>(null);
-  let { width, height } = useComponentSize(graphContainerRef);
+  let { width } = useComponentSize(graphContainerRef);
+
+  // FULLSCREEN THINGS
+  // Detect browser
+  // Fullscreen button is disabled for ios
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const browser = detect();
+  const isIos = browser?.os === "iOS";
+  const canFullscreen = !isIos;
+  const toggleFullscreen = () => {
+    const elem = document.getElementById(APP_ID);
+    const isScreenfull = screenfull.isEnabled && screenfull.isFullscreen;
+    setIsFullscreen(!isScreenfull);
+    if (elem) {
+      if (screenfull.isEnabled) {
+        screenfull.toggle(elem);
+      }
+    }
+  };
 
   // Tooltip
-  const { tooltipData, tooltipLeft, tooltipTop, tooltipOpen, showTooltip, hideTooltip } =
-    useTooltip();
+  const { tooltipData, tooltipLeft, tooltipTop, tooltipOpen } = useTooltip();
 
   // If you don't want to use a Portal, simply replace `TooltipInPortal` below with
   // `Tooltip` or `TooltipWithBounds` and remove `containerRef`
@@ -44,15 +57,6 @@ function App({
     // when tooltip containers are scrolled, this will correctly update the Tooltip position
     scroll: true,
   });
-
-  const handleMouseOver = (event: any, datum: any) => {
-    const coords = localPoint(event.target.ownerSVGElement, event);
-    showTooltip({
-      tooltipLeft: coords?.x,
-      tooltipTop: coords?.y,
-      tooltipData: datum,
-    });
-  };
 
   // Initial data fetch
   useEffect(() => {
@@ -70,7 +74,7 @@ function App({
     : "90rem";
 
   return (
-    <div style={{ width: "100%" }} className="dreams-2020-chart">
+    <div style={{ width: "100%" }} className="dreams-2020-chart" id={APP_ID}>
       <div
         style={{
           width: "100%",
@@ -82,7 +86,12 @@ function App({
       >
         <div
           className="App"
-          style={{ height: "100%", width: "100%", border: "1px solid #EEE" }}
+          style={{
+            height: "100%",
+            width: "100%",
+            border: "1px solid #EEE",
+            position: "relative",
+          }}
         >
           <div style={{ height: "100%", width: "100%" }} ref={graphContainerRef}>
             <div
@@ -92,18 +101,17 @@ function App({
               {(isLoading || !width || width < 1) && <div>Loading...</div>}
               {!isLoading && radarData && (
                 <AppInner
-                  height={height}
                   width={width}
                   showingGraph={showingGraph}
-                  handleMouseOver={handleMouseOver}
-                  hideTooltip={hideTooltip}
                   radarGraphData={radarData}
-                  padding={padding}
                   activeDreamers={activeDreamers}
                 />
               )}
             </div>
           </div>
+          {canFullscreen && (
+            <FullScreenButton isFullscreen={isFullscreen} onClick={toggleFullscreen} />
+          )}
         </div>
 
         {tooltipOpen && (

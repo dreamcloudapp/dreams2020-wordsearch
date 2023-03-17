@@ -7,22 +7,14 @@ import { RadarGraph } from "./radar-graph/radar-graph";
 type AppInnerProps = {
   showingGraph: GraphType;
   width: number;
-  height: number;
-  handleMouseOver: (event: any, datum: any) => void;
-  hideTooltip: () => void;
   radarGraphData: RadarPersonData[];
-  padding: Padding;
   activeDreamers: string[];
 };
 
 function AppInner({
   showingGraph,
   width,
-  height,
-  handleMouseOver,
-  hideTooltip,
   radarGraphData,
-  padding,
   activeDreamers,
 }: AppInnerProps) {
   return (
