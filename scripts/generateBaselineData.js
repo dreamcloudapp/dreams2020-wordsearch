@@ -30,7 +30,7 @@ const legends = [
     column: 6,
   },
   {
-    name: "Burgess",
+    name: "Phoenix",
     column: 10,
   },
   {
